@@ -14,7 +14,7 @@
 #include <queue>
 using namespace std;
 int run_index = 0;
-long long sizeOfData, sizeSmallFile = 0, sizeOfRam;
+long long sizeOfData, sizeSmallFile = 0, sizeOfRam, numberOfLine = 0;
 string inputFileName, outputFileName, line, fileName;
 vector<string> smallFileName, data;
 ofstream outputSmallFile;
@@ -82,7 +82,8 @@ void mergeFiles(){
 		pair<string, int> top = minHeap.top();
 		minHeap.pop();
 		outputFile<<top.first;
-		if (minHeap.size()){
+		numberOfLine--;
+		if (numberOfLine){
 			outputFile<<endl;
 		}
 		//cout<<"Out : "<<top.first<<endl;
@@ -129,6 +130,7 @@ int main(){
 	cout<<"File name "<<inputFileName<<" is being readed"<<endl;
 	int start = 1;
 	while (getline(inputFile, line)){
+		numberOfLine++;
 		//cout<<zz<<" :: size "<<line.size()<<" --"<<line<<endl;
 		if (sizeSmallFile + line.size() + 1 - start <= sizeOfRam){
 			data.push_back(line);
