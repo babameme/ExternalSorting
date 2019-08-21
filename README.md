@@ -1,9 +1,9 @@
-#Large file sort project
+# Large file sort project
 This project is an implementation of the External Sort algorithm in C++.
 
 External sorting is used primarily when data that needs to be sorted is unable to fit into RAM at one time, thus necessitating iterative access of blocks of this data to solve the problem. The algorithm consists of two main steps: first, the data is read into memory a block at a time, sorted, and written back out into temporary files and second, these temporary files are then merged two, three, four, ten, or etc. at a time, similar to merge sort.
 
-#Example
+# Example
 One example of external sorting is the external merge sort algorithm, which is a K-way merge algorithm. It sorts chunks that each fit in RAM, then merges the sorted chunks together.
 
 The algorithm first sorts M items at a time and puts the sorted lists back into external memory. It then recursively does a M/B-way merge on those sorted lists. To do this merge, B elements from each sorted list are loaded into internal memory, and the minimum is repeatedly outputted.
